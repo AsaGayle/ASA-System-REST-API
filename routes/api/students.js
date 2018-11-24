@@ -5,7 +5,7 @@ const router = express.Router();
 const Student = require('../../models/Student');
 
 // @route  GET api/student
-// @desc   Get all student
+// @desc   Get all students
 // @access Public
 router.get('/', (req, res) => {
     Student.find()

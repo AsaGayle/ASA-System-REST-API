@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 //Create Schema 
 const ProfessorSchema = new Schema({
     _id:{
-        type: Number,
-        default: 00000,
+        type: String,
+        default: "00000",
         require: true
     },
     first_name:{
@@ -17,9 +17,13 @@ const ProfessorSchema = new Schema({
         require: true
     },
     professor_email: {
-        type: [String],
+        type: String,
+        require: true
+    },
+    course_list: {
+        type: [],
         require: true
     }
 });
 
-module.exports = Professor = mongoose.model('professor', ProfessorSchema);
+module.exports = Professor = mongoose.model('professor', ProfessorSchema, 'Professor');

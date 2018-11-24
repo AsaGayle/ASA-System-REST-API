@@ -9,17 +9,17 @@ const Professor = require('../../models/Professor');
 // @access Public
 router.get('/', (req, res) => {
     Professor.find()
-    .sort({date: -1 })
     .then(professor => res.json(professor))
 });
 
 // @route  GET api/professor/:profID
 // @desc   Get one professor
 // @access Public
-router.get('/single/:profID', (req, res) => {
-    Student.find({_id : req.params._id})
-    .then(student => res.json(professor))
-    .then(console.log(req.params._id))
+router.get('/:profID', (req, res) => {
+    Professor.find({_id : req.params.profID})
+    .then(professor => res.json(professor))
+    .catch((err) => (err))
+    // .then(console.log(req.params.profID))
 });
 
 module.exports = router;

@@ -4,9 +4,8 @@ const bodyParser = require('body-parser');
 
 const students = require('./routes/api/students')
 const courses = require('./routes/api/courses')
-//const students = require('./routes/api/students-test')
-//const professors = require('./routes/api/professors')
-//const profiles = require('./routes/api/profiles')
+const professors = require('./routes/api/professors')
+const profiles = require('./routes/api/profiles')
 const app = express();
 
 //Bodyparser Middleware
@@ -25,6 +24,9 @@ mongoose
 // Use Routes
 app.use('/api/students', students);
 app.use('/api/courses', courses);
+app.use('/api/professors', professors);
+app.use('/api/profiles', profiles);
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log("Server started on " + port));

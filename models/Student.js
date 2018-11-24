@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const StudentSchema = new Schema({
     _id:{
         type: String,
-        default: 00000,
+        default: "00000",
         require: true
     },
     first_Name:{
@@ -21,11 +21,11 @@ const StudentSchema = new Schema({
         required: true
     },
     cID:{
-        type: [String],
+        type: [],
         required: true
     },
     recepient: {
-        type: [String],
+        type: [],
         required: true
     }
 });
