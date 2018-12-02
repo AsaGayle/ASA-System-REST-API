@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//Create Schema 
-const day_TimeSchema = new Schema({
-    type:[String]
-});
-
 const CourseSchema = new Schema({
     _id:{
         type: String,
