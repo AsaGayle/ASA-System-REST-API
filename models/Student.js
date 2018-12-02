@@ -20,7 +20,7 @@ const StudentSchema = new Schema({
         type: String,
         required: true
     },
-    cID_Attendence:{
+    cID_Attendance:{
         type: Object,
         required: true
     },
