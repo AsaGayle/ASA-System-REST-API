@@ -12,16 +12,16 @@ router.get('/', (req, res) => {
     .then(students => res.json(students))
 });
 
-/*
+
 // @route  GET api/student/:studentID
 // @desc   Get one student
 // @access Public
 router.get('/single/:studentID', (req, res) => {
-    Student.find({studentID : req.params.})
+    Student.find({_id : req.params.studentID})
     .then(student => res.json(student))
-    .then(console.log(req.params.studentID))
 });
 
+/*
 // @route  POST api/student
 // @desc   Create a POST
 // @access Public
