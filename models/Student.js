@@ -20,6 +20,10 @@ const StudentSchema = new Schema({
         type: String,
         required: true
     },
+    cID_Attendence:{
+        type: Object,
+        required: true
+    },
     cID:{
         type: [],
         required: true
