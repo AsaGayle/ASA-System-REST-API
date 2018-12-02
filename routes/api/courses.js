@@ -21,6 +21,15 @@ router.get('/:courseID', (req, res) =>{
     //.then(console.log(course[0]))
 })
 
+// @route   GET api/courselist
+// @desc    Get all courses by seperating passed && seperated string
+// @access  Public
+router.get('/getcourses', (req, res) =>{
+    console.log(req.query.array);
+    // Course.find({_id : req.params.courseID})
+    // .then(course => res.json(course))
+    //.then(console.log(course[0]))
+})
 
 router.get('/:courseID/date', (req, res) =>{
     Course.find({_id : req.params.courseID})
