@@ -4,7 +4,7 @@ const router = express.Router();
 // Student Model
 const Student = require('../../models/Student');
 
-// @route  GET api/student
+// @route  GET api/students
 // @desc   Get all students
 // @access Public
 router.get('/', (req, res) => {
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 
-// @route  GET api/student/:studentID
+// @route  GET api/students/:studentID
 // @desc   Get one student
 // @access Public
 router.get('/single/:studentID', (req, res) => {
@@ -21,6 +21,13 @@ router.get('/single/:studentID', (req, res) => {
     .then(student => res.json(student))
 });
 
+// @route  GET api/students/multi/:courseID
+// @desc   Get one student
+// @access Public
+router.get('/multi/:courseID', (req, res) => {
+    Student.find({cID : req.params.courseID})
+    .then(students => res.json(students))
+});
 /*
 // @route  POST api/student
 // @desc   Create a POST
