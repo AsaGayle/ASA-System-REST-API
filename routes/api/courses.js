@@ -21,19 +21,15 @@ router.get('/:courseID', (req, res) =>{
     //.then(console.log(course[0]))
 })
 
-// @route   GET api/courselist
-// @desc    Get all courses by seperating passed && seperated string
+// @route   GET api/courses/getcourses
+// @desc    Get all courses for student/professor by ID
 // @access  Public
-router.get('/getcourses', (req, res) =>{
-    console.log(req.query.array);
+router.get('/multi/:id', (req, res) =>{
+    Course.find({sID: req.params.id})
+    .then(courses => res.json(courses))
     // Course.find({_id : req.params.courseID})
     // .then(course => res.json(course))
     //.then(console.log(course[0]))
-})
-
-router.get('/:courseID/date', (req, res) =>{
-    Course.find({_id : req.params.courseID})
-    .then(course => (res.json(course[0].day_Time[0][0])))
 })
 
 module.exports = router;
