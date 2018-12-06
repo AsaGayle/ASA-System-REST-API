@@ -37,4 +37,22 @@ router.get('/multi/student/:id', (req, res) =>{
 
 })
 
+// @route   GET api/courses/getcourses
+// @desc    Get all courses for student/professor by ID
+// @access  Public
+router.get('/multi/prof/:id', (req, res) =>{
+    Course.find({pID: req.params.id})
+    .then(courses => res.json(courses))
+ })
+ 
+
+// @route  GET api/students/deleterec/:index/:studentID
+// @desc   Delete one recepient from one student
+// @access Private
+router.patch('/settimewindow/:courseID/:window', (req, res) => {
+    Course.find({_id : req.params.courseID})
+    .then(() => Course.update({'_id':req.params.courseID},{'$set':{'time_Window':req.params.window}}))
+    .catch(err => console.log(err))
+});
+
 module.exports = router;

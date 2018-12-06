@@ -10,6 +10,12 @@ const delete_recepient = (arr, index) => {
     return arr;
 }
 
+const add_recepient = (arr, name, email) => {
+    arr.push([name, email]);
+    console.log(arr);
+    return arr;
+}
+
 // @route  GET api/students
 // @desc   Get all students
 // @access Public
@@ -48,6 +54,19 @@ router.patch('/deleterec/:index/:studentID', (req, res) => {
         }
     )
 
+// @route  GET api/students/deleterec/:index/:studentID
+// @desc   Delete one recepient from one student
+// @access Private
+router.patch('/addrec/:studentID/:recipName/:recipEmail', (req, res) => {
+    Student.find({_id : req.params.studentID})
+    .then(student => arr = student[0].recepient)
+    .then(arr => (add_recepient(arr, req.params.recipName, req.params.recipEmail)))
+    .then(results => 
+        Student.update({'_id':req.params.studentID},{'$set':{'recepient':results}})).catch(err => console.log(err))
+        .then(end => res.json(end))
+        }
+    )
+
 // @route  GET api/students/multi/:courseID
 // @desc   Get one student
 // @access Public
@@ -55,30 +74,5 @@ router.get('/multi/:courseID', (req, res) => {
     Student.find({cID : req.params.courseID})
     .then(students => res.json(students))
 });
-
-// @route  POST api/student
-// @desc   Create a POST
-// @access Public
-router.post('/', (req, res) => {
-    const newStudent = new Student({
-        _id: "01111",
-        first_Name: "Asa",
-        "last_Name" : "Test",
-
-    });
-
-    newStudent.save()
-        .then(student => res.json(student));
-});
-
-// @route  DELETE api/student
-// @desc   Deletes a item
-// @access Public
-router.delete('/:studentID', (req, res) => {
-    Student.find({studentID : req.params.studentID})
-        .then(student => Student.deleteOne({_id : student[0]._id}))
-        .then(()=> res.json({success: true}))
-        .catch(err => res.status(404).json({success: false, id: req.params.stuID}));
-})
 
 module.exports = router;

@@ -6,7 +6,6 @@ const students = require('./routes/api/students')
 const courses = require('./routes/api/courses')
 const professors = require('./routes/api/professors')
 const profiles = require('./routes/api/profiles')
-const test = require('./routes/api/test')
 const app = express();
 
 //Bodyparser Middleware
@@ -27,7 +26,6 @@ app.use('/api/students', students);
 app.use('/api/courses', courses);
 app.use('/api/professors', professors);
 app.use('/api/profiles', profiles);
-app.use('/api/test', test);
 
 const port = process.env.PORT || 5000;
 
