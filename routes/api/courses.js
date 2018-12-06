@@ -37,13 +37,4 @@ router.get('/multi/student/:id', (req, res) =>{
 
 })
 
-// @route   GET api/courses/getcourses
-// @desc    Get all courses for student/professor by ID
-// @access  Public
-router.get('/multi/prof/:id', (req, res) =>{
-    Course.find({pID: req.params.id})
-    .then(courses => res.json(courses))
-
-})
-
 module.exports = router;
